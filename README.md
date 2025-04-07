@@ -9,4 +9,10 @@ PROYECTO ELABORADO PARA BASE DE NUEVOS PROYECTOS CON BUENAS PRATICAS
 
 1. Clona este repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/nombre-del-repo.git
+   git clone https://github.com/josue2004-P/BUENAS_PRACTICAS_NODE_EXPRESS.git
+
+
+
+1. Clona este repositorio:
+   git clone https://github.com/josue2004-P/BUENAS_PRACTICAS_NODE_EXPRESS.git
+
