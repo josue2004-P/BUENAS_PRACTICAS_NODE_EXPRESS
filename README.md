@@ -1,0 +1,12 @@
+# BUENAS PRACTICAS DE NODE CON EXPRESS
+
+PROYECTO ELABORADO PARA BASE DE NUEVOS PROYECTOS CON BUENAS PRATICAS
+
+* CONEXIÓN DE BASE DE DATOS CON PRISMMA Y MYSQL
+* CREACION DE CONTENEDOR PARA LA BASE DE DATOS
+
+## Instalación
+
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/tu-usuario/nombre-del-repo.git
