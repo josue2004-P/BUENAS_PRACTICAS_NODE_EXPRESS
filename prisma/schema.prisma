@@ -14,7 +14,18 @@ datasource db {
 }
 
 model BUENAS_PRACTICAS_01_USUARIO {
-  nId01Usuario    Int     @id @default(autoincrement())
-  sEmail String  @unique
-  sName  String?
+  nId01Usuario Int       @id @default(autoincrement())
+  sEmail       String    @unique
+  sPassword    String
+  sName        String?
+  productos    BUENAS_PRACTICAS_02_PRODUCTO[] // Relación uno a muchos
+}
+
+model BUENAS_PRACTICAS_02_PRODUCTO {
+  nId02Producto Int       @id @default(autoincrement())
+  sNombre       String
+  sDescripcion  String?
+  nPrecio       Float
+  nId01Usuario  Int       // FK hacia BUENAS_PRACTICAS_01_USUARIO
+  usuario       BUENAS_PRACTICAS_01_USUARIO @relation(fields: [nId01Usuario], references: [nId01Usuario])
 }
