@@ -11,12 +11,12 @@ const getAllUsuarios = async (req,res) => {
     })
 }
 
-
 const crearUsuario = async (req,res) => {
 
     const {sEmail,sPassword,sName} = req.body;
 
     try {
+
         const { user, token } = await usuarioService.newUsuario(sName,sEmail, sPassword, );
         
         res.status(201).send({
@@ -50,25 +50,42 @@ const revalidarToken = async (req, res = response) => {
 
     const tokenObtenido = req.header("x-token");
 
-    // AGREGAR SERVICIO
-    const { uid, nombre } = jwt.verify(
-      tokenObtenido,
-      process.env.SECRET_JWT_SEED
-    );
-  
-    // Generar JWT
-    const token = await generarJWT(uid, nombre);
-  
+    const { uid,token } = await usuarioService.revalidarToken(tokenObtenido);
+
     res.json({
       ok: true,
       id: uid,
       token,
     });
-  };
+};
   
+  // LOGIN
+const loginUsuario = async (req, res = response) => {
+
+    const { sEmail, sPassword } = req.body;
+  
+    try {
+
+    const { uid,token } = await usuarioService.loginUsuario(sEmail,sPassword);
+
+      res.json({
+        ok: true,
+        id: uid,
+        token,
+      });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({
+        ok: false,
+        msg: "Por favor hable con el administrador",
+      });
+    }
+  };
+
 
 module.exports = {
     getAllUsuarios,
     crearUsuario,
-    revalidarToken
+    revalidarToken,
+    loginUsuario
 }
